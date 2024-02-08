@@ -1,7 +1,7 @@
 app:
   name: mongodb
   code: MONGODB
-  notify: nmeeran@ecloudcontrol.com
+  notify: edavis@ecloudcontrol.com
 
 build:
   version: 6.0
@@ -11,7 +11,7 @@ build:
   image_template: mongo-6.0
   
 deploy:
-  context: nashida2210/DEV
+  context: edavis043/DEV
   type: statefulset
   replicas: 2
   port:
