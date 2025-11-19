@@ -4,16 +4,16 @@ app:
   notify: edavis@ecloudcontrol.com
 
 build:
-  version: 6.0
+  version: 7.0
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: mongo-6.0
+  image_template: mongo-7.0
   
 deploy:
   context: edavis043/DEV
   type: statefulset
-  replicas: 2
+  replicas: 3
   port:
   - 27017
   - 9216
@@ -48,21 +48,20 @@ properties:
     vault: MONGO_USER_PASSWORD
   AUTH_KEY: 
     vault: AUTH_KEY
-  ENCRYPTION_KEY:
-    vault: ENCRYPTION_KEY
   #AWS_ACCESS_KEY_ID:
     #vault: AWS_ACCESS_KEY_ID
   #AWS_SECRET_ACCESS_KEY:
     #vault: AWS_SECRET_ACCESS_KEY
-  AWS_DEFAULT_REGION: us-east-2
-  BACKUPFILE: ksfetest,test
-  REPLICATION: 2
+  #AWS_DEFAULT_REGION: us-east-2
+  #BACKUPFILE: ksfetest,test
+  REPLICATION: 3
+  REPLICA_SET_NAME: rs0 
   MASTER_ENABLE: "yes"
   AUTH_ENABLE: 1
-  S3_BUCKET: ksfetestbucket
+  #S3_BUCKET: ksfetestbucket
   
   MONGODB_HOST: 127.0.0.1
   MONGODB_PORT: 27017
   MONGO_BACKUP_TIME: 2
   MONGO_BACKUP_DAYS: 7
-  revision : 26
+  revision : 1
