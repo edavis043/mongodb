@@ -54,7 +54,7 @@ properties:
     #vault: AWS_SECRET_ACCESS_KEY
   #AWS_DEFAULT_REGION: us-east-2
   #BACKUPFILE: ksfetest,test
-  REPLICATION: 2
+  REPLICATION: 0
   REPLICA_SET_NAME: rs0 
   MASTER_ENABLE: 'no'
   AUTH_ENABLE: 1
