@@ -1,11 +1,9 @@
 users:
-  - name: ksfeuser
+  - name: mobileuser
     password: $MONGO_USER_PASSWORD
-
 databases:
-  - name: ksfetest
-
+  - name: mobileapp
 acl:
-  - database: ksfetest
-    user: ksfeuser
+  - database: mobileapp
+    user: mobileuser
     access: dbOwner
