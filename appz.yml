@@ -1,7 +1,7 @@
 app:
-  name: mongodb
-  code: MONGODB
-  notify: edavis@ecloudcontrol.com
+  name: mongomobileappdb
+  code: MONGOMOBILEAPPDB
+  notify: appz@cloudbourne.co
 
 build:
   version: 8.2
@@ -9,7 +9,7 @@ build:
   build_file: none
   output_files: output/*.zip
   image_template: mongo-8.2
-  
+
 deploy:
   context: edavis043/DEV
   type: statefulset
@@ -22,24 +22,21 @@ volumes:
 - claim: mongo-data
   mount: /appz/data
   name: mongo-data
-  size: 60Gi
+  size: 5Gi
   mode: ReadWriteOnce
-  matchLabels: false
-  
+
 - claim: mongo-keys
   mount: /appz/keys
   name: mongo-keys
   size: 1Gi
   mode: ReadWriteOnce
-  matchLabels: false
-  
+
 - claim: mongo-backup
   mount: /appz/backup
   name: mongo-backup
-  size: 25Gi
-  mode: ReadWriteOnce
-  matchLabels: false
-  
+  size: 5Gi
+  mode: ReadWriteOnce 
+
 properties:
   DB_USER_ADMIN: admin
   DB_USER_ADMIN_PASSWORD: 
@@ -50,20 +47,14 @@ properties:
     vault: AUTH_KEY
   ENCRYPTION_KEY:
     vault: ENCRYPTION_KEY
-  #AWS_ACCESS_KEY_ID:
-    #vault: AWS_ACCESS_KEY_ID
-  #AWS_SECRET_ACCESS_KEY:
-    #vault: AWS_SECRET_ACCESS_KEY
-  #AWS_DEFAULT_REGION: us-east-2
-  #BACKUPFILE: ksfetest,test
+  #AWS_DEFAULT_REGION: ap-south-1
+  #BACKUPFILE: "*"
   REPLICATION: 2
-  REPLICA_SET_NAME: rs0 
-  MASTER_ENABLE: 'yes'
+  MASTER_ENABLE: "no"
   AUTH_ENABLE: 1
-  #S3_BUCKET: ksfetestbucket
-  
+  #S3_BUCKET: mongodbstorage
   MONGODB_HOST: 127.0.0.1
   MONGODB_PORT: 27017
   MONGO_BACKUP_TIME: 2
   MONGO_BACKUP_DAYS: 7
-  revision : 48
+  revision : 0
