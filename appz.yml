@@ -50,7 +50,8 @@ properties:
   #AWS_DEFAULT_REGION: ap-south-1
   #BACKUPFILE: "*"
   REPLICATION: 2
-  MASTER_ENABLE: "no"
+  REPLICA_SET_NAME: rs0
+  MASTER_ENABLE: "yes"
   AUTH_ENABLE: 1
   #S3_BUCKET: mongodbstorage
   MONGODB_HOST: 127.0.0.1
